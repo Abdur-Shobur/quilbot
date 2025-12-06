@@ -35,7 +35,7 @@ const HumanizeInterface = () => {
 			<Header01>
 				<h1>Hello World</h1>
 			</Header01>
-			<div className="flex h-screen md:h-[calc(100vh-4rem)] px-4 ">
+			<div className="flex h-screen px-4 ">
 				{/* Main Content Area */}
 				<div className="flex-1 flex flex-col">
 					{/* Language Tabs */}
