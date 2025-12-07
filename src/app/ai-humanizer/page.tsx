@@ -5,7 +5,6 @@ import {
 } from '@/components/ai-humanizer/detail-drawer';
 import Container01 from '@/components/container/01-container';
 import Header01 from '@/components/container/01-header';
-import { Button } from '@/components/ui/button';
 import {
 	BarChart3,
 	History,
@@ -23,7 +22,6 @@ const HumanizeInterface = () => {
 	const [outputText, setOutputText] = useState('');
 	const [drawerType, setDrawerType] = useState<DrawerType | null>(null);
 
-	const languages = ['English (US)', 'French', 'Spanish', 'German', 'All'];
 	const modes = ['Basic', 'Advanced'];
 
 	const handleDrawerToggle = (type: DrawerType) => {
@@ -38,23 +36,8 @@ const HumanizeInterface = () => {
 			<div className="flex h-screen px-4 ">
 				{/* Main Content Area */}
 				<div className="flex-1 flex flex-col">
-					{/* Language Tabs */}
-					<div className="  border-b dark:border-gray-600 border-gray-200  py-3">
-						<div className="flex gap-2 flex-wrap">
-							{languages.map((lang) => (
-								<Button
-									key={lang}
-									variant={activeLanguage === lang ? 'default' : 'outline'}
-									onClick={() => setActiveLanguage(lang)}
-								>
-									{lang}
-								</Button>
-							))}
-						</div>
-					</div>
-
 					{/* Mode Tabs */}
-					<div className="border-l border-r border-b dark:border-gray-600 border-gray-200 px-2 md:px-6">
+					<div className="   border-b dark:border-gray-600 border-gray-200 px-2 md:px-6">
 						<div className="flex gap-8">
 							<span className="text-sm font-medium dark:text-gray-300 text-gray-600 py-4">
 								Modes:
