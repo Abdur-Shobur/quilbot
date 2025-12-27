@@ -59,9 +59,9 @@ const HumanizeInterface = () => {
 					</div>
 
 					{/* Input/Output Section */}
-					<div className="border-l border-r dark:border-gray-600 border-gray-200  flex-1 grid grid-cols-2">
+					<div className="border-l border-r dark:border-gray-600 border-gray-200  flex-1 grid grid-cols-1 md:grid-cols-2">
 						{/* Input Side */}
-						<div className="flex-1  border-r dark:border-gray-600 border-gray-200 flex flex-col">
+						<div className="flex-1  border-b md:border-r dark:border-gray-600 border-gray-200 flex flex-col">
 							<div className="flex-1 p-3 lg:p-6">
 								<textarea
 									value={inputText}

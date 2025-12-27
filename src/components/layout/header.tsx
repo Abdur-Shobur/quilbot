@@ -42,7 +42,7 @@ export function Header() {
 				</Link>
 				<div className="flex items-center gap-2">
 					<ThemeToggle />
-					<Button size="sm" className="gap-2" asChild>
+					<Button size="sm" className="hidden sm:flex gap-2" asChild>
 						<Link href="/ai-humanizer">
 							Get started
 							<ArrowRight className="size-4" />
