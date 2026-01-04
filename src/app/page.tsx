@@ -125,7 +125,7 @@ function IconBadge({ icon: Icon }: { icon: LucideIcon }) {
 export default function Page() {
 	return (
 		<Layout>
-			<section className="relative overflow-hidden rounded-3xl border bg-[radial-gradient(circle_at_top,rgba(28,25,23,0.08),transparent_55%)] px-6 py-16 sm:px-10 lg:px-14">
+			<section className="relative overflow-hidden rounded-3xl border bg-[radial-gradient(circle_at_top,rgba(28,25,23,0.08),transparent_55%)] px-6 py-14 sm:px-10 lg:px-14">
 				<div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_320px]">
 					<div className="space-y-8">
 						<div className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-background/70 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
