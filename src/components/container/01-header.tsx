@@ -6,12 +6,10 @@ import {
 	BreadcrumbItem,
 	BreadcrumbLink,
 	BreadcrumbList,
-	BreadcrumbPage,
-	BreadcrumbSeparator,
 } from '../ui/breadcrumb';
 import { Separator } from '../ui/separator';
 import { SidebarTrigger } from '../ui/sidebar';
-export default function Header01({ children }: { children: React.ReactNode }) {
+export default function Header01({ breadcrumb }: { breadcrumb?: string }) {
 	return (
 		<header className="flex h-16 shrink-0 items-center gap-2 px-4 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
 			<div className="flex flex-1 items-center gap-2">
@@ -23,12 +21,12 @@ export default function Header01({ children }: { children: React.ReactNode }) {
 				<Breadcrumb>
 					<BreadcrumbList>
 						<BreadcrumbItem className="hidden md:block">
-							<BreadcrumbLink href="#">AI Humanizer</BreadcrumbLink>
+							<BreadcrumbLink href="#">{breadcrumb}</BreadcrumbLink>
 						</BreadcrumbItem>
-						<BreadcrumbSeparator className="hidden md:block" />
+						{/* <BreadcrumbSeparator className="hidden md:block" />
 						<BreadcrumbItem>
 							<BreadcrumbPage>AI Humanizer</BreadcrumbPage>
-						</BreadcrumbItem>
+						</BreadcrumbItem> */}
 					</BreadcrumbList>
 				</Breadcrumb>
 			</div>

@@ -5,19 +5,11 @@ import {
 } from '@/components/ai-humanizer/detail-drawer';
 import Container01 from '@/components/container/01-container';
 import Header01 from '@/components/container/01-header';
-import {
-	BarChart3,
-	History,
-	Keyboard,
-	MessageSquare,
-	Settings,
-	Volume2,
-} from 'lucide-react';
+import { BarChart3, History, MessageSquare, Settings } from 'lucide-react';
 import { useState } from 'react';
 
 const HumanizeInterface = () => {
 	const [activeMode, setActiveMode] = useState('Basic');
-	const [activeLanguage, setActiveLanguage] = useState('English (US)');
 	const [inputText, setInputText] = useState('');
 	const [outputText, setOutputText] = useState('');
 	const [drawerType, setDrawerType] = useState<DrawerType | null>(null);
@@ -30,10 +22,8 @@ const HumanizeInterface = () => {
 
 	return (
 		<Container01>
-			<Header01>
-				<h1>Hello World</h1>
-			</Header01>
-			<div className="flex h-screen px-4 ">
+			<Header01 breadcrumb="AI Humanizer" />
+			<div className="flex min-h-[calc(100svh-80px)] px-4 ">
 				{/* Main Content Area */}
 				<div className="flex-1 flex flex-col">
 					{/* Mode Tabs */}
@@ -158,11 +148,6 @@ const HumanizeInterface = () => {
 						<span className="text-xs">Statistics</span>
 					</button>
 
-					<button className="flex flex-col items-center gap-1.5 dark:text-gray-300 text-gray-600 hover:text-emerald-600 transition-colors group">
-						<Volume2 className="w-6 h-6" />
-						<span className="text-xs">Tone</span>
-					</button>
-
 					<div className="flex-1" />
 
 					<button
@@ -179,11 +164,6 @@ const HumanizeInterface = () => {
 					>
 						<MessageSquare className="w-6 h-6" />
 						<span className="text-xs">Feedback</span>
-					</button>
-
-					<button className="flex flex-col items-center gap-1.5 dark:text-gray-300 text-gray-600 hover:text-emerald-600 transition-colors group">
-						<Keyboard className="w-6 h-6" />
-						<span className="text-xs">Hotkeys</span>
 					</button>
 				</div>
 			</div>

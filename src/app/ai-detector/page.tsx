@@ -3,21 +3,28 @@ import {
 	DetailDrawer,
 	DrawerType,
 } from '@/components/ai-humanizer/detail-drawer';
+import { ChartBar } from '@/components/chart/bar-chart';
 import Container01 from '@/components/container/01-container';
 import Header01 from '@/components/container/01-header';
 import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from '@/components/ui/accordion';
+import { Badge } from '@/components/ui/badge';
+import { Slider } from '@/components/ui/slider';
+import {
 	BarChart3,
+	CircleAlert,
 	History,
-	Keyboard,
 	MessageSquare,
 	Settings,
-	Volume2,
 } from 'lucide-react';
 import { useState } from 'react';
 
 const HumanizeInterface = () => {
 	const [activeMode, setActiveMode] = useState('Basic');
-	const [activeLanguage, setActiveLanguage] = useState('English (US)');
 	const [inputText, setInputText] = useState('');
 	const [outputText, setOutputText] = useState('');
 	const [drawerType, setDrawerType] = useState<DrawerType | null>(null);
@@ -30,10 +37,8 @@ const HumanizeInterface = () => {
 
 	return (
 		<Container01>
-			<Header01>
-				<h1>Hello World</h1>
-			</Header01>
-			<div className="flex h-screen px-4 ">
+			<Header01 breadcrumb="Ai Detector" />
+			<div className="flex min-h-[calc(100svh-80px)] px-4 ">
 				{/* Main Content Area */}
 				<div className="flex-1 flex flex-col">
 					{/* Mode Tabs */}
@@ -121,8 +126,84 @@ const HumanizeInterface = () => {
 								{outputText ? (
 									<div className="text-gray-700 text-base">{outputText}</div>
 								) : (
-									<div className="flex items-center justify-center h-full text-gray-400">
-										Output will appear here
+									<div className="flex items-center flex-col gap-4  justify-center h-full text-gray-400">
+										<div className="text-center border-b pb-10 max-w-xl w-full">
+											<p className="text-lg">
+												Add text to <br /> begin analysis
+											</p>
+										</div>
+
+										<ChartBar />
+
+										<div className="w-full border-b pb-4">
+											<ul className="space-y-2">
+												<li className="flex justify-between items-center">
+													<p className="flex items-center gap-1">
+														AI-generated <CircleAlert className="size-4" />
+													</p>
+													<div className="flex items-center gap-4">
+														<span className="w-4 h-4 inline-flex rounded-full bg-yellow-600"></span>
+														<span>--%</span>
+													</div>
+												</li>
+												<li className="flex justify-between items-center">
+													<p className="flex items-center gap-1">
+														Human-written & AI-refined
+														<CircleAlert className="size-4" />
+													</p>
+													<div className="flex items-center gap-4">
+														<span className="w-4 h-4 inline-flex rounded-full bg-blue-100"></span>
+														<span>--%</span>
+													</div>
+												</li>
+												<li className="flex justify-between items-center">
+													<p className="flex items-center gap-1">
+														Human-written
+														<CircleAlert className="size-4" />
+													</p>
+													<div className="flex items-center gap-4">
+														<span className="w-4 h-4 inline-flex rounded-full bg-stone-200"></span>
+														<span>--%</span>
+													</div>
+												</li>
+											</ul>
+										</div>
+
+										<div className="w-full">
+											<Accordion
+												className="my-4 w-full space-y-2"
+												collapsible
+												type="single"
+												defaultValue="item-1"
+											>
+												<AccordionItem
+													className="rounded-md border px-4 last:border-b"
+													value={`item-1`}
+												>
+													<AccordionTrigger>
+														Main AI Contributors
+													</AccordionTrigger>
+													<AccordionContent className="space-y-2">
+														<div className="space-y-2 border-b pb-4">
+															<Badge className="rounded-sm" variant="outline">
+																AI Generated
+															</Badge>
+															<p>Probability Level</p>
+															<Slider value={[33]} max={100} step={1} />
+														</div>
+														<div>
+															<p className="text-base font-semibold">
+																Main AI-content Indicators
+															</p>
+															<div>
+																Lorem ipsum dolor sit amet consectetur,
+																adipisicing elit. Molestiae, ut!
+															</div>
+														</div>
+													</AccordionContent>
+												</AccordionItem>
+											</Accordion>
+										</div>
 									</div>
 								)}
 							</div>
@@ -135,7 +216,7 @@ const HumanizeInterface = () => {
 							onClick={() => setOutputText(inputText)}
 							className="px-8 py-3 bg-emerald-600 text-white font-semibold rounded-lg hover:bg-emerald-700 transition-colors"
 						>
-							Humanize
+							AI Detect
 						</button>
 					</div>
 				</div>
@@ -158,11 +239,6 @@ const HumanizeInterface = () => {
 						<span className="text-xs">Statistics</span>
 					</button>
 
-					<button className="flex flex-col items-center gap-1.5 dark:text-gray-300 text-gray-600 hover:text-emerald-600 transition-colors group">
-						<Volume2 className="w-6 h-6" />
-						<span className="text-xs">Tone</span>
-					</button>
-
 					<div className="flex-1" />
 
 					<button
@@ -179,11 +255,6 @@ const HumanizeInterface = () => {
 					>
 						<MessageSquare className="w-6 h-6" />
 						<span className="text-xs">Feedback</span>
-					</button>
-
-					<button className="flex flex-col items-center gap-1.5 dark:text-gray-300 text-gray-600 hover:text-emerald-600 transition-colors group">
-						<Keyboard className="w-6 h-6" />
-						<span className="text-xs">Hotkeys</span>
 					</button>
 				</div>
 			</div>
