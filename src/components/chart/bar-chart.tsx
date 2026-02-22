@@ -45,6 +45,7 @@ export function ChartBar() {
 					<Cell fill="#facc15" /> {/* tailwind yellow-400 */}
 					{/* Human → Stone */}
 					<Cell fill="#cdcdcd" /> {/* tailwind stone-500 */}
+					<Cell className="fill-black dark:fill-white" />{' '}
 				</Bar>
 			</BarChart>
 		</ChartContainer>
