@@ -22,6 +22,32 @@ import {
 	Settings,
 } from 'lucide-react';
 import { useState } from 'react';
+const aiStatus = [
+	{ name: 'ChatGPT', percentage: 5 },
+	{ name: 'Grok', percentage: 0 },
+	{ name: 'Copilot', percentage: 0 },
+	{ name: 'Gemini', percentage: 0 },
+	{ name: 'DeepSeek', percentage: 0 },
+	{ name: 'DeepAI', percentage: 0 },
+	{ name: 'Qwen', percentage: 0 },
+	{ name: 'Claude', percentage: 0 },
+	{ name: 'Llama', percentage: 0 },
+	{ name: 'Gemma', percentage: 0 },
+	{ name: 'Z.ai', percentage: 0 },
+	{ name: 'Perplexity', percentage: 0 },
+	{ name: 'Mistral AI', percentage: 0 },
+	{ name: 'Poe', percentage: 0 },
+	{ name: 'Nova', percentage: 0 },
+	{ name: 'BLACKBOXAI', percentage: 0 },
+	{ name: 'Pi', percentage: 0 },
+];
+
+const contentStatus = [
+	{ label: 'AI-generated and Human-written', percentage: 0 },
+	{ label: 'AI-generated and AI-refined', percentage: 0 },
+	{ label: 'Human-written and AI-refined', percentage: 0 },
+	{ label: 'AI-generated and AI-refined and Human-written', percentage: 0 },
+];
 
 const HumanizeInterface = () => {
 	const [activeMode, setActiveMode] = useState('Basic');
@@ -136,19 +162,28 @@ const HumanizeInterface = () => {
 										<ChartBar />
 
 										<div className="w-full border-b pb-4">
-											<ul className="space-y-2">
-												<li className="flex justify-between items-center">
-													<p className="flex items-center gap-1">
-														AI-generated <CircleAlert className="size-4" />
-													</p>
-													<div className="flex items-center gap-4">
-														<span className="w-4 h-4 inline-flex rounded-full bg-yellow-600"></span>
-														<span>--%</span>
+											<ul className="space-y-4 text-black dark:text-white">
+												<li className="space-y-2 shadow p-3 rounded-md">
+													<div className="flex justify-between items-center">
+														<p className="flex items-center gap-1 font-medium">
+															AI-generated <CircleAlert className="size-4" />
+														</p>
+														<div className="flex items-center gap-4">
+															<span className="w-4 h-4 inline-flex rounded-full bg-yellow-600"></span>
+															<span>--%</span>
+														</div>
+													</div>
+													<div className="space-y-1 space-x-2">
+														{aiStatus.map((ai, index) => (
+															<Badge key={index} variant="outline">
+																{ai.name} ({ai.percentage}%)
+															</Badge>
+														))}
 													</div>
 												</li>
-												<li className="flex justify-between items-center">
-													<p className="flex items-center gap-1">
-														Human-written & AI-refined
+												<li className="flex justify-between items-center  shadow p-3 rounded-md">
+													<p className="flex items-center gap-1 font-medium">
+														Human written
 														<CircleAlert className="size-4" />
 													</p>
 													<div className="flex items-center gap-4">
@@ -156,14 +191,23 @@ const HumanizeInterface = () => {
 														<span>--%</span>
 													</div>
 												</li>
-												<li className="flex justify-between items-center">
-													<p className="flex items-center gap-1">
-														Human-written
-														<CircleAlert className="size-4" />
-													</p>
-													<div className="flex items-center gap-4">
-														<span className="w-4 h-4 inline-flex rounded-full bg-stone-200"></span>
-														<span>--%</span>
+
+												<li className="space-y-2  shadow p-3 rounded-md">
+													<div className="flex justify-between items-center">
+														<p className="flex items-center gap-1 font-medium">
+															Mix of both <CircleAlert className="size-4" />
+														</p>
+														<div className="flex items-center gap-4">
+															<span className="w-4 h-4 inline-flex rounded-full bg-yellow-600"></span>
+															<span>--%</span>
+														</div>
+													</div>
+													<div className="space-y-1 space-x-2 flex flex-col">
+														{contentStatus.map((ai, index) => (
+															<Badge key={index} variant="outline">
+																{ai.label} ({ai.percentage}%)
+															</Badge>
+														))}
 													</div>
 												</li>
 											</ul>

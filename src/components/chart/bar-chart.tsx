@@ -12,8 +12,9 @@ import {
 export const description = 'A bar chart';
 
 const chartData = [
-	{ month: 'AI', desktop: 75 },
-	{ month: 'Human', desktop: 25 },
+	{ month: 'AI', desktop: 45 },
+	{ month: 'Human', desktop: 35 },
+	{ month: 'Hybrid Text', desktop: 25 },
 ];
 
 const chartConfig = {

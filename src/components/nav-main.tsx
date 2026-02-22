@@ -1,8 +1,8 @@
 'use client';
 
+import { ChevronRight, type LucideIcon } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ChevronRight, type LucideIcon } from 'lucide-react';
 
 import {
 	Collapsible,
@@ -19,6 +19,7 @@ import {
 	SidebarMenuSubButton,
 	SidebarMenuSubItem,
 } from '@/components/ui/sidebar';
+import Image from 'next/image';
 
 export function NavMain({
 	items,
@@ -40,7 +41,15 @@ export function NavMain({
 
 	return (
 		<SidebarGroup>
-			<SidebarGroupLabel>QuillBot Tools</SidebarGroupLabel>
+			<SidebarGroupLabel className="h-14">
+				<Image
+					src="/logo.png"
+					alt="logo"
+					width={1000}
+					height={32}
+					className="w-full h-full object-contain"
+				/>
+			</SidebarGroupLabel>
 			<SidebarMenu>
 				{items.map((item) => {
 					const hasChildren = item.items && item.items.length > 0;
@@ -68,7 +77,7 @@ export function NavMain({
 														? {
 																backgroundColor: item.iconBg,
 																color: item.iconColor,
-														  }
+															}
 														: undefined
 												}
 											>
@@ -76,7 +85,7 @@ export function NavMain({
 											</span>
 										)}
 										<span>{item.title}</span>
-										</Link>
+									</Link>
 								</SidebarMenuButton>
 							</SidebarMenuItem>
 						);
@@ -104,7 +113,7 @@ export function NavMain({
 														? {
 																backgroundColor: item.iconBg,
 																color: item.iconColor,
-														  }
+															}
 														: undefined
 												}
 											>
